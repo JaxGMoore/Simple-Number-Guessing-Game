@@ -1,2 +1,5 @@
-The simple rolling dice game/number guessing game. Aimed at asking the user to guess a number between a certain range of numbers, while limiting the number of guesses the user can attempt
+This game is designed to allow the user to guess a specific number while limiting their guesses as a way to determine if they win or if they lose.
+Users : Jackson Moore
+
+
 
