@@ -1,16 +1,6 @@
-1. Create ReadMe in repository, and describe the ojective of the "Simple-Rolling-Dice-Number-Guessing-Game" - DONE
-2. Creat projectroadmap.md with listed objectives for the project - DONE
-2. Search GitHub and other repositories looking for different codes to potentially alter and/or begin with - DONE
-   https://github.com/StanHekht/NumberGuess/blob/master/NumberGuess.py
-  
-    https://github.com/grantjenks/free-python-games/blob/master/freegames/guess.py
-  
-    https://github.com/grantjenks/free-python-games/blob/master/freegames/guess.py
-3. Find related repositiories and clone them to team - DONE
-4. Get code running - DONE
-5. Insert comments for the code - DONE
-6. Add introduction that asks for user to type their name, and program returns and says "hello name..."
-7. Add feature that tells user their input was invalid and to please type a number
-8. Add gif images to where the running code translates to numbers actually popping up
-9. Create one page powerpoint for marketing purposes of project - DONE
-
+1. Create ReadME after using a prior ReadME as example - DONE
+2. Assign Members to tasks (only me) - DONE
+3. Find related repository, evaluate, and test it - https://github.com/prateekkalra/guess-game (Played the game; works perfectly!) 
+4. (2nd Repository) https://github.com/kying18/guess-the-number/blob/master/main.py - DONE
+5. Search for it and clone - DONE
+6. Attempted to run code - Success!
