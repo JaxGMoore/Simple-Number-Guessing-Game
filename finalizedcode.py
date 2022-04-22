@@ -1,8 +1,9 @@
 from tkinter import *
 import random
 import time
+from datetime import datetime, timedelta
 
-
+curr_time = datetime.now()     
 
 class Application(Frame):
     def __init__(self, master):
@@ -19,16 +20,25 @@ class Application(Frame):
     
     
     def create_widgets(self):
-        self.starttimevalue = time.time()
+        time_rem = time.time()
+        def timeout():
+            end_time = curr_time + timedelta(0,30)  
+            if datetime.now()  < end_time:
+                time_rem = end_time - datetime.now()    
+                return 'You have {} seconds remaining'.format(str(time_rem))     #Original timer didn't work, I am trying to fix that   
+            return "Time's up."
+
+
         self.starttime = time.strftime("%H:%M:%S")
         #self.runtime(starttime)
         #Create timer label
         Label(self, text= "Start Time = {}".format(self.starttime)).grid(row = 0,column = 0, sticky = W)
+        Label(self, text= "Time Left = {}".format(timeout())).grid(row = 0,column = 0, sticky = W)
         #Create title label
-        Label(self, text = 'Harrisons Number Guess Game'
+        Label(self, text = 'Jacksons Number Guess Game' #Changed user from Harrison to Jackson
               ).grid(row = 0, column = 2, columnspan = 1, sticky = N)
         # create instruction labels
-        Label(self, text = 'Try and guess a number between 1-100'
+        Label(self, text = 'Try and guess a number between 1-200' #Changing high number from 100 to 200
               ).grid(row = 1, column = 0, columnspan = 3, sticky = W)
         Label(self, text = 'Try to guess in as few attempts as possible'
               ).grid(row = 2, column = 0, columnspan = 3, sticky = W)
@@ -50,8 +60,10 @@ class Application(Frame):
                ).grid(row = 5, column = 2, sticky = W)
         self.result_txt = Text(self, width = 80, height = 15, wrap = WORD)
         self.result_txt.grid(row = 6, column = 0, columnspan = 4)
+    
+
     def pick_rnumber(self):
-        self.rand_number = random.randint(1, 100)
+        self.rand_number = random.randint(1, 200) #Changing high number from 100 to 200
         print(self.rand_number) # test
     def check_if_correct(self):
         self.result = ""
@@ -71,20 +83,26 @@ class Application(Frame):
             self.tries += 1
         self.give_result()
         print(self.tries) # test
+
+        
+        print("You have {} try remaining".format(10-self.tries)) #Lets the user see how many tries they have remaining
+
+        Label(self, text = "You have {} tries remaining".format(10-self.tries)
+              ).grid(row = 4, column = 0, sticky = W)
+        if self.tries == 10: #Kills program after 10 tries
+            root.destroy()
+
     def number_of_tries(self):
         self.tries = 0
+
     def give_result(self):
         # display the results
         self.result_txt.delete(0.0, END)
         self.result_txt.insert(0.0, self.result)
         self.no_tries_txt.delete(0.0, END)
         self.no_tries_txt.insert(0.0, self.tries)
-    def timeout(self):
-        end_time = starttimevalue + 30.0
-        while time.time() < end_time:
-            time_remaining = end_time - time.time()
-            return "You have "+str(time_remaining)+" seconds remaining"
-        return "Time's up."
+    
+    
 # main
 root = Tk()
 root.title('Guess the Number')
