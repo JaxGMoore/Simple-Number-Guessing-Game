@@ -1,7 +1,7 @@
 from tkinter import *
 import random
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta #importing datetime to allow me to show user exact time remaining in the game
 
 curr_time = datetime.now()     
 
